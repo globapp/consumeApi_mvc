@@ -1,0 +1,89 @@
+﻿@model consumeApi1.Models.AddressCustomer
+@{
+    ViewData["Title"] = "RegisterAddress";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="~/js/countrystatecity.js"></script>
+
+<h1>RegisterAddress</h1>
+
+<h4>AddressCustomer</h4>
+<hr />
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="RegisterAddress">
+  
+   
+<div class="form-group">
+                <label asp-for="Country" class="control-label"></label>
+                      <select name="country" class="countries form-control" id="countryId">
+    <option value="">Select Country</option>
+</select>
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="State" class="control-label"></label>
+                      <select name="state" class="states form-control" id="stateId">
+    <option value="">Select State</option>
+</select>
+                <span asp-validation-for="State" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                      <select name="city" class="cities form-control" id="cityId">
+    <option value="">Select City</option>
+</select>
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+@*            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" value = "@ViewBag.id" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+@*                <label asp-for="Idcustomer" class="control-label"></label>
+*@                <input type="hidden" asp-for="Idcustomer" value = "@ViewBag.id"/>
+@*                <span asp-validation-for="Idcustomer" class="text-danger"></span>
+*@            </div>
+@*            <div class="form-group">
+                <label asp-for="AddressType" class="control-label"></label>
+                <input asp-for="AddressType" class="form-control" />
+                <span asp-validation-for="AddressType" class="text-danger"></span>
+            </div>*@
+
+@*            <div class="form-group">
+                <label asp-for="CountryCode" class="control-label"></label>
+                <input asp-for="CountryCode" class="form-control" />
+                <span asp-validation-for="CountryCode" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <textarea asp-for="Address" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+@*            <div class="form-group">
+                <label asp-for="Adby" class="control-label"></label>
+                <input asp-for="Adby" class="form-control" />
+                <span asp-validation-for="Adby" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedDate" class="control-label"></label>
+                <input asp-for="CreatedDate" class="form-control" />
+                <span asp-validation-for="CreatedDate" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

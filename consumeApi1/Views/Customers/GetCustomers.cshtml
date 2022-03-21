@@ -1,0 +1,131 @@
+﻿@model consumeApi1.Models.Customers
+
+@{
+    ViewData["Title"] = "GetCustomers";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Get Customer</h1>
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="row">
+@*        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>*@
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Addby)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Addby)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Created)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Created)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>
+<br /><br />
+<a href="/Customers/RegisterAddress/@Html.DisplayFor(model => model.Id)">Add Address</a>
+@if(@ViewBag.customeraddress != null)
+{
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                Country
+            </th>
+            <th>
+                State
+            </th>
+            <th>
+                City
+            </th>
+@*            <th>
+                @Html.DisplayNameFor(model => model.CountryCode)
+            </th>*@
+            <th>
+                Address
+            </th>
+            <th>
+                Adby
+            </th>
+            <th>
+                Created
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in @ViewBag.customeraddress) {
+        <tr>
+@*            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Idcustomer)
+            </td>
+           <td>
+                @Html.DisplayFor(modelItem => item.AddressType)
+            </td>*@
+            <td>
+                @item.Country
+            </td>
+            <td>
+                @item.State
+            </td>
+            <td>
+                @item.City
+            </td>
+@*            <td>
+                @Html.DisplayFor(modelItem => item.CountryCode)
+            </td>*@
+            <td>
+                @item.Address
+            </td>
+            <td>
+                @item.Adby
+            </td>
+            <td>
+                @item.CreatedDate
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+}
+
